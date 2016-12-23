@@ -1,0 +1,76 @@
+buildscript {
+    /*
+    ext {
+        springBootVersion = '1.4.1.RELEASE'
+    }
+    */
+    repositories {
+        jcenter()
+        // mavenLocal()
+        // mavenCentral()
+        // maven { url "https://repo.spring.io/libs-release" }
+    }
+    dependencies {
+        // classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
+        // Spring热部署
+        // classpath 'org.springframework:springloaded:1.2.0.RELEASE'
+    }
+}
+
+group 'org.shiki'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+    // mavenLocal()
+    // mavenCentral()
+}
+
+dependencies {
+
+    // Spring Boot
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    // Hot swapping
+    // compile("org.springframework.boot:spring-boot-devtools")
+    // thymeleaf
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    // Spring Security
+    compile("org.springframework.boot:spring-boot-starter-security")
+    // jpa
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    // 监控和管理生产环境
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    // Spring
+    compile group: 'org.springframework', name: 'spring-context-support', version: '4.3.4.RELEASE'
+
+    // Quartz
+    compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.2.3'
+
+
+    // db
+    // MySQL
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.5'
+    // postgresql
+    // compile "org.postgresql:postgresql:9.4.1211"
+
+    // json
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.21'
+
+    // swagger
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.6.1'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.6.1'
+
+    // 测试
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
